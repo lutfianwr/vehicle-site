@@ -8,8 +8,15 @@ const Header = () => {
       : dd.classList.add("hidden");
   };
 
+  const hideDropDown = () => {
+    const da = document.getElementById("dropdown");
+    da.classList.add("hidden");
+  };
   return (
-    <nav className="flex items-center justify-between bg-teal-500 p-4 shadow-md">
+    <nav
+      className="flex items-center justify-between bg-teal-500 p-4 shadow-md"
+      onMouseLeave={() => hideDropDown()}
+    >
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <svg
           className="mr-2"
@@ -34,47 +41,41 @@ const Header = () => {
           <p className="text-white px-3">Hi, Michelle</p>
         </div>
 
-        <div class="relative inline-block text-left">
+        <div className="relative inline-block text-left">
           <div>
             <button
               onClick={() => toggleDropDown()}
               type="button"
-              class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-teal-500 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+              className="inline-flex w-full justify-center rounded-md border border-gray-300 bg-teal-500 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-gray-100"
               id="menu-button"
               aria-expanded="true"
               aria-haspopup="true"
             >
               <svg
-                class="h-5 w-5"
+                className="h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="white"
                 aria-hidden="true"
               >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clip-rule="evenodd"
-                />
+                <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
               </svg>
             </button>
           </div>
 
           <div
-            class="absolute hidden right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="absolute hidden right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="menu-button"
-            tabindex="-1"
             id="dropdown"
           >
-            <div class="py-1" role="none">
+            <div className="py-1" role="none">
               <form method="POST" action="#" role="none">
                 <button
                   type="submit"
-                  class="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+                  className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
                   role="menuitem"
-                  tabindex="-1"
                   id="menu-item-3"
                 >
                   Sign out
