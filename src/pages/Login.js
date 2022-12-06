@@ -18,21 +18,26 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "https://dummyjson.com/auth/login",
-      JSON.stringify({ username, password }),
-      {
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    try {
+      const response = await axios.post(
+        "https://dummyjson.com/auth/login",
+        JSON.stringify({ username, password }),
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      localStorage.setItem("user", JSON.stringify(response.data));
 
-    setCookie("token", response.data.token, {
-      secure: true,
-      sameSite: "strict",
-      maxAge: "7200",
-      path: "/",
-    });
-    navigate("/");
+      setCookie("token", response.data.token, {
+        secure: true,
+        sameSite: "strict",
+        maxAge: "7200",
+        path: "/",
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

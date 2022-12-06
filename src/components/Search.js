@@ -13,8 +13,8 @@ const Search = ({ fetchData }) => {
   return (
     <form onSubmit={(e) => handleSearch(e)}>
       <div className="flex">
-        <div className="my-3">
-          <div className="input-group relative flex items-stretch w-full mb-4 rounded">
+        <div className="my-4">
+          <div className="input-group relative flex items-stretch w-full rounded">
             <input
               onChange={(e) => setSearchInput(e.target.value)}
               value={searchInput}
