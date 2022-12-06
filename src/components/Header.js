@@ -1,6 +1,16 @@
 import React from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    removeCookie("token");
+    navigate("/sign-in");
+  };
+
   const toggleDropDown = () => {
     const dd = document.getElementById("dropdown");
     dd.classList.contains("hidden")
@@ -71,16 +81,15 @@ const Header = () => {
             id="dropdown"
           >
             <div className="py-1" role="none">
-              <form method="POST" action="#" role="none">
-                <button
-                  type="submit"
-                  className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
-                  role="menuitem"
-                  id="menu-item-3"
-                >
-                  Sign out
-                </button>
-              </form>
+              <button
+                onClick={() => handleLogout()}
+                type="submit"
+                className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
+                role="menuitem"
+                id="menu-item-3"
+              >
+                Sign out
+              </button>
             </div>
           </div>
         </div>
