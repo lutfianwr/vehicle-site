@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = () => {
+const Table = ({ vehicles }) => {
   return (
     <div className="flex justify-center">
       <table className="table-auto min-w-full">
@@ -13,29 +13,25 @@ const Table = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          <tr className="border-b">
-            <td className="py-2">1</td>
-            <td>8888</td>
-            <td>USA</td>
-            <td>Tesla</td>
-            <td>detail</td>
-          </tr>
-          <tr className="border-b">
-            <td className="py-2">2</td>
-            <td>8888</td>
-            <td>USA</td>
-            <td>Suzuki</td>
-            <td>detail</td>
-          </tr>
-          <tr className="border-b">
-            <td className="py-2">3</td>
-            <td>8888</td>
-            <td>USA</td>
-            <td>Suzuki</td>
-            <td>detail</td>
-          </tr>
-        </tbody>
+
+        {vehicles &&
+          vehicles.map((vehicle, index) => {
+            return (
+              <tbody key={index}>
+                <tr className="border-b">
+                  <td className="py-2">{index + 1}</td>
+                  <td>{vehicle.Mfr_ID}</td>
+                  <td>{vehicle.Country}</td>
+                  <td>{vehicle.Mfr_Name}</td>
+                  <td>
+                    <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-1 px-8 border border-teal-700 rounded">
+                      Details
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            );
+          })}
       </table>
     </div>
   );
