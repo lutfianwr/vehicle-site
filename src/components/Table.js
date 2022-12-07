@@ -44,7 +44,7 @@ const Table = ({
       <table className="table-auto min-w-full">
         <thead className="bg-gray-100">
           <tr className="text-left border-b">
-            <th className="py-2">No</th>
+            <th className="p-2"> No</th>
             <th>Manufacturer ID</th>
             <th>Country</th>
             <th>Manufacturer Name</th>
@@ -56,7 +56,7 @@ const Table = ({
           return (
             <tbody key={index}>
               <tr className="border-b">
-                <td className="py-2">
+                <td className="p-2">
                   {index + 1 * currentPage * offset - offset + 1}
                 </td>
                 <td>{vehicle.Mfr_ID}</td>

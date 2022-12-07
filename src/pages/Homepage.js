@@ -12,10 +12,14 @@ import { useContext } from "react";
 const Homepage = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [vehicles, setVehicles] = useState();
+
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate();
-  const { searchInput, setSearchInput } = useContext(SearchContext);
   const [search, setSearch] = useState("");
+  const [option, setOption] = useState("ManufacturerName");
+
+  const { searchInput, setSearchInput } = useContext(SearchContext);
+
+  const navigate = useNavigate();
   const offset = 8;
 
   useEffect(() => {
@@ -50,7 +54,20 @@ const Homepage = () => {
       if (search.length > 0) {
         let result = [];
         response.data.Results.forEach((item) => {
-          if (item.Mfr_Name.toLowerCase().includes(search.toLowerCase())) {
+          if (
+            option === "ManufacturerName" &&
+            item.Mfr_Name.toLowerCase().includes(search.toLowerCase())
+          ) {
+            result.push(item);
+          } else if (
+            option === "Country" &&
+            item.Country.toLowerCase().includes(search.toLowerCase())
+          ) {
+            result.push(item);
+          } else if (
+            option === "ManufacturerID" &&
+            item.Mfr_ID.toString().includes(search.toLowerCase())
+          ) {
             result.push(item);
           }
         });
@@ -66,7 +83,12 @@ const Homepage = () => {
   return (
     <Layout>
       <div className="px-10">
-        <Search fetchData={fetchData} setSearch={setSearch} search={search} />
+        <Search
+          fetchData={fetchData}
+          setSearch={setSearch}
+          search={search}
+          setOption={setOption}
+        />
         <Table
           vehicles={vehicles}
           currentPage={currentPage}
