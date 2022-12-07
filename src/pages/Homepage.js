@@ -12,8 +12,11 @@ import { useContext } from "react";
 const Homepage = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [vehicles, setVehicles] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
   const { searchInput, setSearchInput } = useContext(SearchContext);
+  const [search, setSearch] = useState("");
+  const offset = 8;
 
   useEffect(() => {
     checkAuth();
@@ -24,6 +27,13 @@ const Homepage = () => {
     const token = cookies.token;
     if (!token) {
       navigate("/sign-in");
+    } else {
+      setCookie("token", token, {
+        secure: true,
+        sameSite: "strict",
+        maxAge: "7200",
+        path: "/",
+      });
     }
   };
 
@@ -37,15 +47,16 @@ const Homepage = () => {
       );
       setVehicles(response.data.Results);
 
-      if (searchInput.length > 0) {
+      if (search.length > 0) {
         let result = [];
         response.data.Results.forEach((item) => {
-          if (item.Mfr_Name.toLowerCase().includes(searchInput.toLowerCase())) {
+          if (item.Mfr_Name.toLowerCase().includes(search.toLowerCase())) {
             result.push(item);
           }
         });
         setVehicles(result);
       }
+      setCurrentPage(1);
       return response;
     } catch (error) {
       console.log(error);
@@ -55,9 +66,21 @@ const Homepage = () => {
   return (
     <Layout>
       <div className="px-10">
-        <Search fetchData={fetchData} />
-        <Table vehicles={vehicles} />
-        <Pagination />
+        <Search fetchData={fetchData} setSearch={setSearch} search={search} />
+        <Table
+          vehicles={vehicles}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          searchInput={searchInput}
+          search={search}
+          offset={offset}
+        />
+        <Pagination
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+          vehicles={vehicles}
+          offset={offset}
+        />
       </div>
     </Layout>
   );

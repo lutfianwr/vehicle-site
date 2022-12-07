@@ -2,7 +2,7 @@ import React from "react";
 import { SearchContext } from "../utils/context";
 import { useContext } from "react";
 
-const Search = ({ fetchData }) => {
+const Search = ({ fetchData, search, setSearch }) => {
   const { searchInput, setSearchInput } = useContext(SearchContext);
 
   const handleSearch = (e) => {
@@ -16,8 +16,8 @@ const Search = ({ fetchData }) => {
         <div className="my-4">
           <div className="input-group relative flex items-stretch w-full rounded">
             <input
-              onChange={(e) => setSearchInput(e.target.value)}
-              value={searchInput}
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
               type="search"
               className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-l transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-teal-600 focus:outline-none"
               placeholder="Search"

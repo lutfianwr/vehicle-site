@@ -13,7 +13,7 @@ const Details = () => {
     <Layout>
       <div className="container flex flex-col items-center py-5 px-20 justify-between">
         <div className="md:flex py-4">
-          <p className="w-60 font-medium p-2">{Mfr_ID.key}</p>
+          <p className="w-60 font-medium p-2">Manufacturer ID</p>
           <p className="w-80 p-2 bg-gray-100">{Mfr_ID}</p>
         </div>
         <div className="md:flex py-4">

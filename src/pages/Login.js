@@ -58,7 +58,7 @@ const Login = () => {
               }}
               required
               type="text"
-              className="block w-full px-4 py-2 mt-2 bg-white border rounded-md focus:border-teal-400 focus:ring-teal-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-2 mt-2 bg-white border border-gray-400 rounded-md focus:border-teal-400 focus:ring-teal-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div className="mb-2">
@@ -73,7 +73,7 @@ const Login = () => {
                 }}
                 required
                 type={showPassword ? "text" : "password"}
-                className="block w-full px-4 py-2 mt-2 bg-white border rounded-md focus:border-teal-400 focus:ring-teal-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 bg-white border border-gray-400 rounded-md focus:border-teal-400 focus:ring-teal-300 focus:outline-none focus:ring focus:ring-opacity-40"
               />
               <button className="mx-5" onClick={(e) => toggleShowPassword(e)}>
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
