@@ -1,12 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Inter");
+@import url("https://fonts.googleapis.com/css?family=Proxima+Nova");
 
 body {
   margin: 0;
-  font-family: "Open Sans", "Roboto";
+  font-family: "Inter", "Roboto";
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.logo {
+  font-family: "Proxima Nova", "Roboto";
 }

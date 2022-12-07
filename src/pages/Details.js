@@ -13,23 +13,23 @@ const Details = () => {
     <Layout>
       <div className="container flex flex-col items-center py-5 px-20 justify-between">
         <div className="md:flex py-4">
-          <p className="w-60 font-medium p-2">Manufacturer ID</p>
+          <p className="w-60 font-semibold p-2">Manufacturer ID</p>
           <p className="w-80 p-2 bg-gray-100">{Mfr_ID}</p>
         </div>
         <div className="md:flex py-4">
-          <p className="w-60 font-medium p-2">Manufacturer Name</p>
+          <p className="w-60 font-semibold p-2">Manufacturer Name</p>
           <p className="w-80 p-2 bg-gray-100">{Mfr_Name}</p>
         </div>
         <div className="md:flex py-4">
-          <p className="w-60 font-medium p-2">Manufacturer Common Name</p>
+          <p className="w-60 font-semibold p-2">Manufacturer Common Name</p>
           <p className="w-80 p-2 bg-gray-100">{Mfr_CommonName}</p>
         </div>
         <div className="md:flex py-4">
-          <p className="w-60 font-medium p-2">Country</p>
+          <p className="w-60 font-semibold p-2">Country</p>
           <p className="w-80 p-2 bg-gray-100">{Country}</p>
         </div>
         <div className="md:flex py-4">
-          <p className="w-60 font-medium p-2">Vehicle Types</p>
+          <p className="w-60 font-semibold p-2">Vehicle Types</p>
           <ol className="w-80 p-2 list-decimal">
             {VehicleTypes.length !== 0 ? (
               VehicleTypes.map((type, index) => {

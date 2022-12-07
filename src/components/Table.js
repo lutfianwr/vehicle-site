@@ -1,16 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Table = ({
-  vehicles,
-  currentPage,
-  setCurrentPage,
-  searchInput,
-  search,
-  offset,
-}) => {
+const Table = ({ vehicles, currentPage, offset }) => {
   const navigate = useNavigate();
-  // const offset = 9;
 
   const currentVehicles = () => {
     return vehicles?.slice(
@@ -18,26 +10,6 @@ const Table = ({
       offset * currentPage
     );
   };
-  // const currentVehicles = () => {
-  //   if (search.length < 1) {
-  //     return vehicles?.slice(
-  //       currentPage === 1 ? 0 : offset * currentPage - offset,
-  //       offset * currentPage
-  //     );
-  //   } else {
-  //     // setCurrentPage(1);
-  //     let result = [];
-  //     vehicles?.forEach((item) => {
-  //       if (item.Mfr_Name.toLowerCase().includes(search.toLowerCase())) {
-  //         result.push(item);
-  //       }
-  //     });
-  //     return result?.slice(
-  //       currentPage === 1 ? 0 : offset * currentPage - offset,
-  //       offset * currentPage
-  //     );
-  //   }
-  // };
 
   return (
     <div className="flex justify-center">
@@ -55,7 +27,7 @@ const Table = ({
         {currentVehicles()?.map((vehicle, index) => {
           return (
             <tbody key={index}>
-              <tr className="border-b">
+              <tr className="border-b text-sm">
                 <td className="p-2">
                   {index + 1 * currentPage * offset - offset + 1}
                 </td>
@@ -69,7 +41,7 @@ const Table = ({
                         state: { vehicle },
                       })
                     }
-                    className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-1 px-8 border border-teal-700 rounded"
+                    className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-1 px-8 border border-teal-800 rounded-3xl"
                   >
                     Details
                   </button>

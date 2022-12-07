@@ -1,10 +1,6 @@
 import React from "react";
-import { SearchContext } from "../utils/context";
-import { useContext } from "react";
 
 const Search = ({ fetchData, search, setSearch, setOption }) => {
-  const { searchInput, setSearchInput } = useContext(SearchContext);
-
   const handleSearch = (e) => {
     e.preventDefault();
     fetchData();
@@ -19,14 +15,14 @@ const Search = ({ fetchData, search, setSearch, setOption }) => {
               onChange={(e) => setSearch(e.target.value)}
               value={search}
               type="search"
-              className="form-control w-80 relative flex-auto min-w-0 block px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-l transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-teal-600 focus:outline-none"
+              className="form-control w-80 relative flex-auto min-w-0 block px-3 py-1.5 font-normal text-sm text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-l transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-teal-600 focus:outline-none"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="button-addon2"
             />
             <button
               onClick={() => fetchData()}
-              className="btn px-6 py-2.5 bg-teal-600 text-white font-medium text-xs leading-tight uppercase rounded-r shadow-md hover:bg-teal-700 hover:shadow-lg focus:bg-teal-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-teal-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+              className="btn px-6 py-2 bg-teal-600 text-white font-medium text-xs leading-tight uppercase rounded-r shadow-md hover:bg-teal-700 hover:shadow-lg focus:bg-teal-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-teal-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
               type="button"
               id="button-addon2"
             >
@@ -49,7 +45,7 @@ const Search = ({ fetchData, search, setSearch, setOption }) => {
           </div>
         </div>
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center text-xs">
           <label className="px-2">Search by</label>
           <div className="w-52">
             <select

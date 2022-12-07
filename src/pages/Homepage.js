@@ -6,8 +6,6 @@ import Table from "../components/Table";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { SearchContext } from "../utils/context";
-import { useContext } from "react";
 
 const Homepage = () => {
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
@@ -17,10 +15,8 @@ const Homepage = () => {
   const [search, setSearch] = useState("");
   const [option, setOption] = useState("ManufacturerName");
 
-  const { searchInput, setSearchInput } = useContext(SearchContext);
-
   const navigate = useNavigate();
-  const offset = 8;
+  const offset = 9;
 
   useEffect(() => {
     checkAuth();
@@ -82,21 +78,14 @@ const Homepage = () => {
 
   return (
     <Layout>
-      <div className="px-10">
+      <div className="px-10 bg-gray-20000">
         <Search
           fetchData={fetchData}
           setSearch={setSearch}
           search={search}
           setOption={setOption}
         />
-        <Table
-          vehicles={vehicles}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          searchInput={searchInput}
-          search={search}
-          offset={offset}
-        />
+        <Table vehicles={vehicles} currentPage={currentPage} offset={offset} />
         <Pagination
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
