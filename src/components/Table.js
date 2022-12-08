@@ -16,11 +16,11 @@ const Table = ({ vehicles, currentPage, offset }) => {
       <table className="table-auto min-w-full">
         <thead className="bg-gray-100">
           <tr className="text-left border-b">
-            <th className="p-2"> No</th>
-            <th>Manufacturer ID</th>
-            <th>Country</th>
+            <th className="p-2 lg:w-16"> No</th>
+            <th className="lg:w-56">Manufacturer ID</th>
+            <th className="lg:w-72">Country</th>
             <th>Manufacturer Name</th>
-            <th>Action</th>
+            <th className="lg:w-52">Action</th>
           </tr>
         </thead>
 

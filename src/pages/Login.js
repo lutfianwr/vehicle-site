@@ -27,7 +27,6 @@ const Login = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      localStorage.setItem("user", JSON.stringify(response.data));
 
       setCookie("token", response.data.token, {
         secure: true,
@@ -35,6 +34,10 @@ const Login = () => {
         maxAge: "7200",
         path: "/",
       });
+      const userdata = response.data;
+      delete userdata.token;
+      localStorage.setItem("user", JSON.stringify(userdata));
+
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -45,7 +48,7 @@ const Login = () => {
   return (
     <div className="relative flex flex-col justify-center content-center min-h-screen overflow-hidden">
       <div className="flex justify-center w-screen py-5 -mt-10">
-        <div className="bg-teal-500 mx-2 rounded-3xl">
+        <div className="bg-gradient-to-r from-teal-500 to-teal-200 mx-2 rounded-3xl">
           <svg
             className="mx-2"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +65,7 @@ const Login = () => {
         </span>
       </div>
       <div className="w-full p-6 mx-auto bg-gray-100 rounded-md shadow-md lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-teal-700 underline">
+        <h1 className="text-3xl font-semibold text-center text-teal-700">
           Sign in
         </h1>
         <form className="mt-6" onSubmit={handleLogin}>

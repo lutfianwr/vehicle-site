@@ -78,7 +78,7 @@ const Homepage = () => {
 
   return (
     <Layout>
-      <div className="px-10 bg-gray-20000">
+      <div className="px-10">
         <Search
           fetchData={fetchData}
           setSearch={setSearch}

@@ -46,7 +46,7 @@ const Header = () => {
       onMouseLeave={() => hideDropDown()}
     >
       <a href="." className="flex items-center flex-shrink-0 mr-6">
-        <div className="bg-teal-500 mx-2 rounded-3xl">
+        <div className="bg-gradient-to-r from-teal-500 to-teal-200 mx-2 rounded-3xl">
           <svg
             className="mx-2"
             xmlns="http://www.w3.org/2000/svg"
